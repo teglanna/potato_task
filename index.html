@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+        <link rel="canonical" href="http://www.example.com" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src= "js/paginate.js"></script>
+
+    </head>
+<body>
+
+    <div ng-app="myApp" ng-controller="postsCtrl" id="main"> 
+
+        <h1>Flickr Public Feed</h1>
+       <div class="g-plusone" size="standard" count="true" href="#" id="gplus"></div>
+    <div id="content">
+        <ul id="post-list" infinite-scroll="loadMore()" infinite-scroll-distance="0">
+          <li ng-repeat="item in posts">
+
+            <div class="crop">
+                <img ng-src="{{ item.pic }}" ng-click="showDetail(item)"/>
+            </div>
+            <div class="meta-data">
+                <div class="meta-block1">
+                    <h2 ng-click="showDetail(item)">{{ item.title }}</h2>
+                    <p class="date">
+                        <a ng-href="{{ item.author_link }}" target='_blank'> {{ item.author }} </a>
+                        &nbsp&nbsp&nbsp{{ item.published_date }}&nbsp&nbsp&nbsp
+                        <a ng-href='{{ item.link }}' target='_blank'>View on Flickr</a>
+                    </p>
+                </div>
+                <div class="meta-block2">
+                    <h2 ng-click="showDetail(item)"> {{ item.photo_title }} </h2>
+                    <p class='date'> {{ item.published_date }} </p>
+                    <p>
+                        <a ng-href='{{ item.author_link }}' target='_blank'> {{ item.photo_author }}</a>
+                        &nbsp&nbsp&nbsp<a ng-href='{{ item.link }}' target='_blank'>View on Flickr</a>
+                    </p>
+                </div>
+            </div>
+          </li>
+        </ul>
+
+        <div id="post-details" class="clearfix" style="display:none">
+            
+            <div class='post-data clearfix'>
+                <div class='back' ng-click="showList()">Back</div>
+                <a ng-href='{{ detail.pic }}' target='_blank'><h2>{{ detail.title }}</h2></a>
+                <p><a ng-href="{{ detail.author_link }}" target='_blank'>{{ detail.photo_author }}</a> | {{ detail.published_date }}</p>
+            </div>
+            <div class="post-description">
+                <div class="crop">
+                    <img ng-src="{{ detail.pic }}"/>
+                </div>
+            
+                <p>
+                    Lorem ipsum dolor sit amet, vix consul graece intellegam et, sed viris ceteros in. Sea eu corpora patrioque, pro ex error fastidii atomorum. Ex has primis ornatus conceptam, et iuvaret hendrerit eos. Ea eam aeque noluisse, et putent voluptua contentiones vim, sale omittantur eu cum. Abhorreant assueverit ad pro.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, vix consul graece intellegam et, sed viris ceteros in. Sea eu corpora patrioque, pro ex error fastidii atomorum. Ex has primis ornatus conceptam, et iuvaret hendrerit eos. Ea eam aeque noluisse, et putent voluptua contentiones vim, sale omittantur eu cum. Abhorreant assueverit ad pro.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, vix consul graece intellegam et, sed viris ceteros in. Sea eu corpora patrioque, pro ex error fastidii atomorum. Ex has primis ornatus conceptam, et iuvaret hendrerit eos. Ea eam aeque noluisse, et putent voluptua contentiones vim, sale omittantur eu cum. Abhorreant assueverit ad pro.
+                </p>
+                <p>
+                Tags: <u>{{ detail.tags[0] }}</u> <u>{{ detail.tags[1] }}</u> <u>{{ detail.tags[2] }}</u>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+<script src= "js/app.js"></script>
+
+</body>
+</html>
