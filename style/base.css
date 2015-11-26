@@ -10,15 +10,26 @@
   clear: both; }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
+  list-style-type: none; }
 
 a {
   text-decoration: none; }
 
+body, p, h2, ul {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #383636;
+  position: absolute;
+  width: 100%;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+  color: #2B2B2B; }
+
 #gplus {
-  float: right; }
+  float: right;
+  margin: 10px -20px 0 0; }
 
 h1 {
   color: white;
@@ -32,19 +43,15 @@ h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+  @media screen and (min-width: 500px) {
+    h2 {
+      margin: 10px 0;
+      font-size: 20px; } }
 
-body {
-  background-color: #383636;
-  position: absolute;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Oxygen', sans-serif;
-  color: #2B2B2B; }
+a, [ng-click] {
+  color: #1D1688; }
 
 p {
-  margin: 0;
-  padding: 0;
   line-height: 1.5em; }
 
 #main {
@@ -52,8 +59,7 @@ p {
   max-width: 1100px;
   width: 100%; }
   #main #content {
-    background-color: #fff;
-    border: 2px solid red; }
+    background-color: #fff; }
   #main ul li {
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
@@ -71,7 +77,10 @@ p {
     display: block;
     margin-left: 50%;
     margin-top: 50%;
-    -webkit-transform: translateY(-50%) translateX(-50%); }
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%); }
 
 .meta-data {
   width: 70%;
@@ -80,6 +89,9 @@ p {
     cursor: pointer; }
   .meta-data .meta-block2 {
     display: block; }
+    @media screen and (max-width: 350px) {
+      .meta-data .meta-block2 {
+        width: 160px; } }
   .meta-data .meta-block1 {
     display: none; }
 
@@ -91,36 +103,39 @@ p {
       width: 100%;
       text-align: center; }
     #post-details .post-data .back {
-      float: right;
       position: relative;
-      width: 80px;
       height: 34px;
+      width: 80px;
+      background-color: red;
+      -webkit-border-radius: 0 4px 4px 0;
+      -moz-border-radius: 0 4px 4px 0;
+      -ms-border-radius: 0 4px 4px 0;
+      border-radius: 0 4px 4px 0;
+      float: right;
       margin: 10px;
       color: white;
       text-align: center;
       font-size: 22px;
       vertical-align: middle;
-      line-height: 30px;
-      background-color: red;
-      border-radius: 0 4px 4px 0;
       cursor: pointer; }
       #post-details .post-data .back:before {
-        content: '';
         position: absolute;
-        top: 4px;
         height: 26px;
         width: 26px;
-        background: red;
+        background-color: red;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
         border-radius: 4px;
         -webkit-transform: rotateZ(45deg);
-        background-color: red;
-        left: -14px;
-        box-shadow: 0px 7px 11px -4px #ccc; }
-  #post-details .post-description .crop {
-    width: 100%;
-    height: 100%;
-    margin-top: -100px;
-    margin-bottom: -50px; }
+        -moz-transform: rotateZ(45deg);
+        -ms-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+        content: '';
+        top: 4px;
+        left: -14px; }
+  #post-details .post-description .crop, #post-details .post-description .crop img {
+    display: none; }
   #post-details .post-description p {
     padding: 0 0 14px 20px; }
     @media screen and (min-width: 600px) {
@@ -133,23 +148,21 @@ p {
         width: 80%;
         padding-left: 0; } }
 
-@media screen and (min-width: 500px) {
-  #post-details .post-description .crop {
-    margin-top: -150px; }
-
-  h2 {
-    margin: 10px 0;
-    font-size: 20px; } }
 @media screen and (min-width: 600px) {
   #post-details .post-data h2, #post-details .post-data p {
     float: left;
     text-align: left; }
   #post-details .post-data h2 {
-    width: 70%; }
+    width: 70%;
+    font-size: 26px; }
   #post-details .post-description .crop {
+    display: block;
     width: 150px;
     height: 120px;
-    margin-top: 5px; } }
+    margin-top: 5px;
+    margin-left: 5px; }
+    #post-details .post-description .crop img {
+      display: block; } }
 @media screen and (min-width: 800px) {
   .meta-data {
     width: 80%;

@@ -1,6 +1,7 @@
 var app = angular.module('myApp', ['infinite-scroll']);
 var url = "http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK"
 
+/* Loading data */
 var addToArray = function(from, to, n) {
 	for (var i = 0; i<n && i<from.length; i++) {
 		to.push(from.pop());
@@ -18,12 +19,12 @@ app.controller('postsCtrl', function($scope, $http) {
     	return new Date(item.published);
     };
 
+    /* Latest post at the beginning */
     var sortedItems = data.items.sort(function(a,b) {
     	return getDate(a) - getDate(b);
     });
 
-
-
+    /* Create own array with necessary data */
 	sortedItems.map(function(item) {
 
     	var el = document.createElement('div');
@@ -40,15 +41,18 @@ app.controller('postsCtrl', function($scope, $http) {
 	    obj.tags = item.tags.split(' ');
 	    obj.author_link = el.getElementsByTagName('a')[0].getAttribute("href");
 
-        console.log(obj.author_link);
-        arr.push(obj);
-        
-      
-//        console.log(arr[0].published_date);
+        arr.push(obj);              
     });
 
+
+	/* First ten posts added, and loading more */
     addToArray(arr, posts, 10);
+
+    $scope.loadMore = function() {
+		addToArray(arr, posts, 2);
+	}
     
+    /* Change content by clicking */
     $scope.showDetail = function(detail) {
     	$scope.detail = detail;
 
@@ -60,11 +64,6 @@ app.controller('postsCtrl', function($scope, $http) {
 		document.getElementById('post-list').style.display = "block";
 		document.getElementById('post-details').style.display = "none";
 	}
-
-	$scope.loadMore = function() {
-		addToArray(arr, posts, 2);
-	}
-
 
   })
 
