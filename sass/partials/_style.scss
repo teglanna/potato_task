@@ -17,8 +17,12 @@ h2 {
     text-overflow: ellipsis; 
 }
 
+a, [ng-click] {
+	color: #1D1688;
+}
+
 body {
-	background-color: #383636;
+	background-color: #383636; 
 	position: absolute;
 	width: 100%;
 	margin: 0;
@@ -40,7 +44,6 @@ p {
 
     #content {
 		background-color: #fff;
-	    border: 2px solid red;
 	}
 
     ul li {
@@ -78,6 +81,10 @@ p {
 
 	.meta-block2 {
 		display: block;
+
+		@media screen and (max-width: 350px) {
+			width: 160px;
+		}
 	}
 
 	.meta-block1 {
@@ -108,7 +115,6 @@ p {
 		    text-align:center;
 		    font-size: 22px;
 		    vertical-align: middle;
-		    line-height: 30px;
 		    background-color:red;
 		    border-radius: 0 4px 4px 0;
 		    cursor: pointer;
@@ -218,3 +224,4 @@ p {
 		
 	}
 }
+
