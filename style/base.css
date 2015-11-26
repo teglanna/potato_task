@@ -36,6 +36,9 @@ h1 {
   padding: 0 10px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400; }
+  @media screen and (max-width: 399) {
+    h1 {
+      font-size: 26px; } }
 
 h2 {
   margin: 5px 0;
@@ -89,9 +92,10 @@ p {
     cursor: pointer; }
   .meta-data .meta-block2 {
     display: block; }
-    @media screen and (max-width: 350px) {
+    @media screen and (max-width: 399px) {
       .meta-data .meta-block2 {
-        width: 160px; } }
+        width: 160px;
+        font-size: 14px; } }
   .meta-data .meta-block1 {
     display: none; }
 
