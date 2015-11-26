@@ -1,0 +1,20 @@
+@mixin back_button($position, $height, $width, $background-color: red) {
+  position: $position;
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transform($animation: rotateZ(45deg)) {
+  -webkit-transform: $animation;
+     -moz-transform: $animation;
+      -ms-transform: $animation;
+          transform: $animation;
+}
